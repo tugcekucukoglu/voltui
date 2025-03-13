@@ -1,0 +1,45 @@
+{
+    "name": "voltui",
+    "version": "0.0-alpha.1",
+    "description": "",
+    "type": "module",
+    "main": "dist/index.js",
+    "author": "tugcekucukoglu",
+    "bin": {
+        "voltui": "dist/index.js"
+    },
+    "scripts": {
+        "dev": "npx tsx src/index",
+        "build": "esbuild src/index.ts --bundle --packages=external --platform=node --format=esm --outdir=dist --sourcemap",
+        "test:mock:verbose": "npm run build && node ./dist/index.js add --no-src-dir button --verbose",
+        "test:mock:verbose2": "npm run build && node ./dist/index.js --verbose",
+        "test:mock:version": "npm run build && node ./dist/index.js --version",
+        "test:mock": "npm run build && node ./dist/index.js add checkbox --no-src-dir",
+        "test:all": "npm run build && node ./dist/index.js add all",
+        "test": "npm run build && node ./dist/index.js addxxxxx all",
+        "test2": "npm run build && node ./dist/index.js"
+    },
+    "keywords": [
+        "primevue",
+        "voltui",
+        "cli"
+    ],
+    "license": "ISC",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "commander": "^13.1.0",
+        "fs-extra": "^11.3.0"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "@types/node": "^22.13.10",
+        "esbuild": "^0.25.1",
+        "typescript": "^5.8.2"
+    }
+}
